@@ -22,15 +22,23 @@ export interface FeatchGamesResponce {
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [errorMsg, setErrorMsg] = useState("");
+  const [isLoading, setLoadeing] = useState(false);
 
   useEffect(() => {
+    setLoadeing(true);
     apiClient
       .get<FeatchGamesResponce>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((error) => setErrorMsg(error.message));
+      .then((res) => {
+        setGames(res.data.results);
+        setLoadeing(false);
+      })
+      .catch((error) => {
+        setErrorMsg(error.message);
+        setLoadeing(false);
+      });
   }, []);
 
-  return { games, errorMsg };
+  return { games, errorMsg, isLoading };
 };
 
 export default useGames;
