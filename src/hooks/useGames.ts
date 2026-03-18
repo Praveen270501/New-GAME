@@ -1,7 +1,5 @@
-import apiClient from "@/services/api-client";
-import { useEffect, useState } from "react";
 import useData from "./useData";
-import { Genre } from "./UseGenre";
+import { GameQuery } from "@/App";
 
 export interface Game {
   id: number;
@@ -17,19 +15,17 @@ export interface Platform {
   slug: string;
 }
 
-const useGames = (
-  seletedGenre: Genre | null,
-  selectedPlatform: Platform | null,
-) =>
+const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
     {
       params: {
-        genres: seletedGenre?.id,
-        platforms: selectedPlatform?.id,
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
       },
     },
-    [seletedGenre?.id, selectedPlatform?.id],
+    [gameQuery],
   );
 
 export default useGames;

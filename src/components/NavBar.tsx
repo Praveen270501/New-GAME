@@ -1,6 +1,6 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import Logo from "../assets/react.svg";
+import Logo from "../assets/gaming_logo.svg";
 import { ColorModeButton } from "./ui/color-mode";
 
 const NavBar = () => {
