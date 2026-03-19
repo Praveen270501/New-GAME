@@ -3,6 +3,7 @@ import useGenre, { Genre } from "@/hooks/UseGenre";
 import getCroppedImageURL from "@/services/iamge-url";
 import {
   Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -10,8 +11,6 @@ import {
   Spinner,
   Text,
 } from "@chakra-ui/react";
-import { textStyles } from "@chakra-ui/react/theme";
-import React from "react";
 
 interface Props {
   onSeleectGenre: (genre: Genre) => void;
@@ -24,6 +23,9 @@ const GenreList = ({ selcetedGenre, onSeleectGenre }: Props) => {
   if (isLoading) return <Spinner></Spinner>;
   return (
     <>
+      <Heading fontSize={"2xl"} marginBottom={3}>
+        Genres
+      </Heading>
       <List.Root variant={"plain"}>
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY="7px">
@@ -31,6 +33,7 @@ const GenreList = ({ selcetedGenre, onSeleectGenre }: Props) => {
               <Image
                 boxSize="30px"
                 borderRadius={8}
+                objectFit="cover"
                 src={getCroppedImageURL(genre.image_background)}
               />
               <Button
