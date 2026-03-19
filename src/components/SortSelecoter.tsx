@@ -26,7 +26,13 @@ const SortSelecoter = ({ onSelectSortOrder, sortOrder }: Props) => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button variant="outline">
+        <Button
+          variant="outline"
+          bg="dropdown.bg"
+          borderColor="dropdown.border"
+          color="text.muted"
+          _hover={{ bg: "dropdown.hover" }}
+        >
           <HStack>
             <Text>Order by :{currentSortSelector?.lable || "Relevence"}</Text>
             <BsChevronDown />

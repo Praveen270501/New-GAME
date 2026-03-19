@@ -21,6 +21,11 @@ const SearchInput = ({ onSearch }: Props) => {
           borderRadius={20}
           placeholder="Seaech Games..."
           variant={"outline"}
+          bg="input.bg"
+          borderColor="input.border"
+          _placeholder={{ color: "input.placeholder" }}
+          _hover={{ borderColor: "input.border" }}
+          _focus={{ borderColor: "input.border", boxShadow: "none" }}
         ></Input>
       </InputGroup>
     </form>

@@ -29,7 +29,7 @@ const GenreList = ({ selcetedGenre, onSeleectGenre }: Props) => {
       <List.Root variant={"plain"}>
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY="7px">
-            <HStack>
+            <HStack cursor="pointer">
               <Image
                 boxSize="30px"
                 borderRadius={8}
