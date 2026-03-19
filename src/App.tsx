@@ -26,7 +26,7 @@ const Demo = () => {
       }}
       templateColumns={{
         base: "1fr",
-        lg: "300px 1fr",
+        lg: "270px 1fr",
       }}
     >
       <GridItem area={"nav"} margin={2}>
